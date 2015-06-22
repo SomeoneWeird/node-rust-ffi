@@ -1,10 +1,13 @@
 
 #include <nan.h>
-#include "library.h"
+
+namespace rust {
+  extern "C" {
+    int add(int one, int two);
+  }
+}
 
 using namespace v8;
-
-// extern int add(int one, int two);
 
 NAN_METHOD(Add) {
   NanScope();
@@ -12,8 +15,7 @@ NAN_METHOD(Add) {
   Local<Number> ltwo = args[1].As<Number>();
   int one = lone->Int32Value();
   int two = ltwo->Int32Value();
-  // int result = add(one, two);
-  int result = one + two;
+  int result = rust::add(one, two);
   Local<Number> r = NanNew<Number>(result);
   NanReturnValue(r);
 }
