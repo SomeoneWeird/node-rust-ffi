@@ -2,3 +2,4 @@ node_modules
 rust/library.dylib
 build
 .DS_Store
+library.dylib

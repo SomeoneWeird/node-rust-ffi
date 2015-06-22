@@ -4,15 +4,10 @@
       "target_name": "nativeaddon",
       "sources": [ "nativeaddon.cc" ],
       "include_dirs": [ 
-        "<!(node -e \"require('nan')\")",
-        "rust",
-        "../rust",
-        ".",
-        "./build/Release"
+        "<!(node -e \"require('nan')\")"
       ],
       "libraries": [
-        "../rust/library.dylib",
-        "-L../build/Release"
+        "../rust/library.dylib"
       ],
       "copies": [
         {
